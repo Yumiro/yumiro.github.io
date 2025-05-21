@@ -1,5 +1,6 @@
-Zonelet Starter
-For more information visit https://zonelets.net/
+# flag's website, built with 💚
+
+With the help of Zonelets! https://zonelets.net/
 
 Released under MIT License
 
