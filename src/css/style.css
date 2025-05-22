@@ -150,6 +150,7 @@ h1, h2, h3, h4, h5 {
   outline-style: ridge;
   outline-width: 4px;
   outline-offset: 0;
+  margin-right: 1em;
 }
 
 .orange {
