@@ -69,7 +69,7 @@ let headerHTML = '<ul> <li><a href="' + relativePath + '/">home</a></li>' +
 let footerHTML = `<hr><p>${blogName} is written by <a href="${authorLink}">${authorName}</a>, using <a href="https://zonelets.net/">Zonelets</a> as a base and hosted through <a href="https://github.com/Yumiro/yumiro.github.io">GitHub</a><br>still under construction!`
 
 //Badges/Banners/whatever HTML
-let badgesHTML = `<hr><a class="no-hover" href=""><img src="src/img/banner.png" class="img-container"></a>`;
+let badgesHTML = `<hr><a class="no-hover" href="/"><img src="src/img/banner.png" class="img-container"></a>`;
 
 //To do the following stuff, we want to know where we are in the posts array (if we're currently on a post page).
 let currentIndex = -1;
