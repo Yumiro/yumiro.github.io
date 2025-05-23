@@ -1,6 +1,0 @@
-plugins:
-  - jekyll-feed
-title: test
-description: test
-author: flag
-permalink: /:basename/
