@@ -234,7 +234,12 @@ if (document.title === "Blog Post") {
   document.title = currentPostTitle;
 }
 
-//dummy
+// very ugly hacky solution to remove .html from links. no idea if it works for blogposts! maybe!
+if (!window.location.href.includes("127.0.0.1") && window.location.pathname.endsWith(".html")) {
+  window.location.href = window.location.pathname.replace(".html", "");
+}
+
+// dummy
 console.log(
                 "%c ≽^•⩊•^≼ %c",
                 "background-color: #ff9200; color: black; font-weight: bold; border-radius: 8px;",
