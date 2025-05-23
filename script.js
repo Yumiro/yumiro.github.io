@@ -73,7 +73,7 @@ let badgesHTML = `<hr><a class="no-hover" href="/"><img src="src/img/banner.png"
 
 //To do the following stuff, we want to know where we are in the posts array (if we're currently on a post page).
 let currentIndex = -1;
-let currentFilename = url.substring(url.lastIndexOf('posts/'));
+let currentFilename = url.substring(url.lastIndexOf('/posts/'));
 
 // note to self: i probably need to mess with this later when i actually start writing blogposts
 //Depending on the web server settings (Or something?), the browser url may or may not have ".html" at the end. If not, we must add it back in to match the posts array. (12-19-2022 fix)
