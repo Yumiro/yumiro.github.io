@@ -34,7 +34,7 @@ let postsArray = [
 //[ "posts/2020-11-10-Special-Characters-Example.html", encodeURI( 'Spéci@l "Character\'s" Examp|e' ) ],
 //[ "posts/2020-11-10-My-Third-Post-Example.html" ],
 //[ "posts/2020-11-10-My-Second-Post-Example.html" ],
-[ "" ] ];
+[ "posts/2025-05-23-test.html" ] ];
 
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
@@ -139,13 +139,13 @@ function formatPostLink(i) {
 	if (  postDateFormat.test ( postsArray[i][0].slice( 6,17 ) ) ) {
 	  postTitle_i = postsArray[i][0].slice(17,-5).replace(/-/g," ");
     } else {
-      postTitle_i = "nothing yet! check back later, perhaps" //postsArray[i][0].slice(6,-5).replace(/-/g," ");
+      postTitle_i = postsArray[i][0].slice(6,-5).replace(/-/g," ");
     }
   }
   if (  postDateFormat.test ( postsArray[i][0].slice( 6,17 ) ) ) {
     return '<li><a href="' + relativePath + '/'+ postsArray[i][0] +'">' + postsArray[i][0].slice(6,16) + " \u00BB " + postTitle_i + '</a></li>';
   } else {
-    return postTitle_i //'<li><a href="' + relativePath + '/'+ postsArray[i][0] +'">' + postTitle_i + '</a></li>';
+    return '<li><a href="' + relativePath + '/'+ postsArray[i][0] +'">' + postTitle_i + '</a></li>';
   }
 }
 
@@ -166,7 +166,7 @@ for ( let i = 0; i < numberOfRecentPosts; i++ ) {
   then we'll add a link to the archive so readers can find the rest of
   your wonderful posts and be filled with knowledge.*/
 if ( postsArray.length > recentPostsCutoff ) {
-  recentPostListHTML += '<li class="moreposts"><a href=' + relativePath + '/archive.html>\u00BB more posts</a></li></ul>';
+  recentPostListHTML += '<li class="moreposts"><a href=' + relativePath + '/archive>\u00BB more posts</a></li></ul>';
 } else {
   recentPostListHTML += "</ul>";
 }
@@ -238,7 +238,7 @@ if (document.title === "Blog Post") {
 
 // very ugly hacky solution to add .html to the end of links when working locally... i guess!!
 [...document.getElementsByTagName("a")].forEach((element) => {
-  if (element.href.includes("127.0.0.1") && !element.href.endsWith("/")) {
+  if (element.href.includes("127.0.0.1") && !element.href.endsWith("/") && !element.href.endsWith(".html")) {
     element.href += ".html";
   }
 });
