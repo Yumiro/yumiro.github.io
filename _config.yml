@@ -3,3 +3,4 @@ plugins:
 title: test
 description: test
 author: flag
+permalink: /:basename/
