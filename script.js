@@ -61,8 +61,8 @@ if ( url.includes("posts/") ) {
 
 //Generate the Header HTML, a series of list items containing links.
 let headerHTML = '<ul> <li><a href="' + relativePath + '/">home</a></li>' + 
-'<li><a href="' + relativePath + '/archive.html">posts</a></li>' +
-'<li><a href="' + relativePath + '/about.html">about</a></li> </ul>';
+'<li><a href="' + relativePath + '/archive">posts</a></li>' +
+'<li><a href="' + relativePath + '/about">about</a></li> </ul>';
 
 //Generate the Footer HTML, which uses the variables defined in the BASIC INFO section above to list info about the site.
 //Note: feel free to remove the references to Zonelets and Neocities! Just be careful not to delete any necessary HTML closing tags or other syntax.
@@ -74,6 +74,8 @@ let badgesHTML = `<hr><a class="no-hover" href="/"><img src="src/img/banner.png"
 //To do the following stuff, we want to know where we are in the posts array (if we're currently on a post page).
 let currentIndex = -1;
 let currentFilename = url.substring(url.lastIndexOf('posts/'));
+
+// note to self: i probably need to mess with this later when i actually start writing blogposts
 //Depending on the web server settings (Or something?), the browser url may or may not have ".html" at the end. If not, we must add it back in to match the posts array. (12-19-2022 fix)
 if ( ! currentFilename.endsWith(".html") ) {
     currentFilename += ".html";
@@ -234,10 +236,12 @@ if (document.title === "Blog Post") {
   document.title = currentPostTitle;
 }
 
-// very ugly hacky solution to remove .html from links. no idea if it works for blogposts! maybe!
-if (!window.location.href.includes("127.0.0.1") && window.location.pathname.endsWith(".html")) {
-  window.location.href = window.location.pathname.replace(".html", "");
-}
+// very ugly hacky solution to add .html to the end of links when working locally... i guess!!
+[...document.getElementsByTagName("a")].forEach((element) => {
+  if (element.href.includes("127.0.0.1") && !element.href.endsWith("/")) {
+    element.href += ".html";
+  }
+});
 
 // dummy
 console.log(
