@@ -4,7 +4,7 @@
 
 body {
   background-color: #1d1d1d;
-	background-position: top;
+  background-position: top;
   font-size: 18px;
   font-family: Georgia, "Times New Roman", serif;
   margin: 0;
@@ -51,11 +51,15 @@ img {
   font-style: italic;
 }
 
-a:hover:not(.no-hover) { 
+a:hover:not(.no-hover) {
   background-color: #f3f3f3;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: Tahoma, Geneva, sans-serif;
   color: #6f5034;
 }
@@ -64,9 +68,9 @@ h1, h2, h3, h4, h5 {
 #container {
   margin: 3em auto;
   width: 90%;
-	max-width: 700px;
-	background-color: #dfdfdf;
-  color: #151515; 
+  max-width: 700px;
+  background-color: #dfdfdf;
+  color: #151515;
   outline-color: #a9a9a9;
   outline-style: ridge;
   outline-width: 4px;
@@ -76,7 +80,6 @@ h1, h2, h3, h4, h5 {
 #content {
   padding: 10px 5% 20px 5%;
 }
-
 
 /*HEADER STYLE*/
 #header {
