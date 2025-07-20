@@ -63,6 +63,7 @@ if (url.includes("posts/")) {
 //Generate the Header HTML, a series of list items containing links.
 let headerHTML = `<ul><li><a href="${relativePath}/">home</a></li> 
 <li><a href="${relativePath}/archive">posts</a></li>
+<li><a href="${relativePath}/fox">fox</a></li>
 <li><a href="${relativePath}/about">about</a></li></ul>`;
 
 //Generate the Footer HTML, which uses the variables defined in the BASIC INFO section above to list info about the site.
