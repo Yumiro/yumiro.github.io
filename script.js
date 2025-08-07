@@ -32,8 +32,8 @@ let authorLink = "https://flaf.dev/about"; // Enter your website, social media, 
 
 let postsArray = [
   //[ "posts/2020-11-10-Special-Characters-Example.html", encodeURI( 'Spéci@l "Character\'s" Examp|e' ) ],
-  //[ "posts/2020-11-10-My-Third-Post-Example.html" ],
-  //[ "posts/2020-11-10-My-Second-Post-Example.html" ],
+
+  ["posts/2025-08-07-Love.html"],
   ["posts/2025-06-24-Purpose.html"],
 ];
 
