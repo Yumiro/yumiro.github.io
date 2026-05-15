@@ -56,6 +56,7 @@ const postDateFormat = /\d{4}\-\d{2}\-\d{2}\-/;
 
 //Check if you are in posts (if so, the links will have to go up a directory)
 let relativePath = ".";
+
 if (url.includes("posts/")) {
   relativePath = "..";
 }
@@ -82,7 +83,9 @@ let currentFilename = url.substring(url.lastIndexOf("posts/"));
 if (!currentFilename.endsWith(".html")) {
   currentFilename += ".html";
 }
+
 let i;
+
 for (i = 0; i < postsArray.length; i++) {
   if (postsArray[i][0] === currentFilename) {
     currentIndex = i;
@@ -116,6 +119,7 @@ if (currentIndex > -1) {
   if (postDateFormat.test(postsArray[currentIndex][0].slice(6, 17))) {
     let monthSlice = postsArray[currentIndex][0].slice(11, 13);
     let month = "";
+
     if (monthSlice === "01") {
       month = "Jan";
     } else if (monthSlice === "02") {
@@ -152,6 +156,7 @@ if (currentIndex > -1) {
 
 function formatPostLink(i) {
   let postTitle_i = "";
+
   if (postsArray[i].length > 1) {
     postTitle_i = decodeURI(postsArray[i][1]);
   } else {
@@ -161,6 +166,7 @@ function formatPostLink(i) {
       postTitle_i = "nothing yet! check back later, perhaps"; //postsArray[i][0].slice(6, -5).replace(/-/g, " ");
     }
   }
+
   if (postDateFormat.test(postsArray[i][0].slice(6, 17))) {
     return `<li><a href="${relativePath}/${postsArray[i][0]}">${postsArray[
       i
@@ -171,15 +177,18 @@ function formatPostLink(i) {
 }
 
 let postListHTML = "<ul>";
+
 for (let i = 0; i < postsArray.length; i++) {
   postListHTML += formatPostLink(i);
 }
+
 postListHTML += "</ul>";
 
 //Generate the Recent Post List HTML, which can be shown on the home page (or wherever you want!)
 let recentPostsCutoff = 5;
 let recentPostListHTML = "<h2>recent posts:</h2><ul>";
 let numberOfRecentPosts = Math.min(recentPostsCutoff, postsArray.length);
+
 for (let i = 0; i < numberOfRecentPosts; i++) {
   recentPostListHTML += formatPostLink(i);
 }
@@ -223,39 +232,30 @@ if (postsArray.length < 2) {
   one particular blog post where we don't want the footer to appear, 
   we simply don't put a <div id="footer"> on that page.*/
 
-if (document.getElementById("nextprev")) {
-  document.getElementById("nextprev").innerHTML = nextprevHTML;
-}
-if (document.getElementById("postlistdiv")) {
-  document.getElementById("postlistdiv").innerHTML = postListHTML;
-}
-if (document.getElementById("recentpostlistdiv")) {
-  document.getElementById("recentpostlistdiv").innerHTML = recentPostListHTML;
-}
-if (document.getElementById("header")) {
-  document.getElementById("header").innerHTML = headerHTML;
-}
-if (document.getElementById("blogTitleH1")) {
-  document.getElementById("blogTitleH1").innerHTML = blogTitle;
-}
-if (document.getElementById("postTitleH1")) {
-  document.getElementById("postTitleH1").innerHTML = currentPostTitle;
-}
-if (document.getElementById("postDate")) {
-  document.getElementById("postDate").innerHTML = niceDate;
-}
-if (document.getElementById("footer")) {
-  document.getElementById("footer").innerHTML = footerHTML;
-}
-if (document.getElementById("badges")) {
-  document.getElementById("badges").innerHTML = badgesHTML;
-}
-if (document.getElementById("age")) {
-  const birthDate = new Date("2006-02-14");
-  const currentDate = new Date();
+const nextprev = document.getElementById("nextprev");
+const postlistdiv = document.getElementById("postlistdiv");
+const recentpostlistdiv = document.getElementById("recentpostlistdiv");
+const header = document.getElementById("header");
+const blogTitleH1 = document.getElementById("blogTitleH1");
+const postTitleH1 = document.getElementById("postTitleH1");
+const postDate = document.getElementById("postDate");
+const footer = document.getElementById("footer");
+const badges = document.getElementById("badges");
+const age = document.getElementById("age");
 
-  document.getElementById("age").innerText = currentDate.getFullYear() - birthDate.getFullYear();
-}
+const birthDate = new Date("2006-02-14");
+const currentDate = new Date();
+
+if (nextprev) nextprev.innerHTML = nextprevHTML;
+if (postlistdiv) postlistdiv.innerHTML = postListHTML;
+if (recentpostlistdiv) recentpostlistdiv.innerHTML = recentPostListHTML;
+if (header) header.innerHTML = headerHTML;
+if (blogTitleH1) blogTitleH1.innerHTML = blogTitle;
+if (postTitleH1) postTitleH1.innerHTML = currentPostTitle;
+if (postDate) postDate.innerHTML = niceDate;
+if (footer) footer.innerHTML = footerHTML;
+if (badges) badges.innerHTML = badgesHTML;
+if (age) age.innerText = currentDate.getFullYear() - birthDate.getFullYear();
 
 //Dynamically set the HTML <title> tag from the postTitle variable we created earlier
 //The <title> tag content is what shows up on browser tabs
