@@ -250,6 +250,12 @@ if (document.getElementById("footer")) {
 if (document.getElementById("badges")) {
   document.getElementById("badges").innerHTML = badgesHTML;
 }
+if (document.getElementById("age")) {
+  const birthDate = new Date("2006-02-14");
+  const currentDate = new Date();
+
+  document.getElementById("age").innerText = currentDate.getFullYear() - birthDate.getFullYear();
+}
 
 //Dynamically set the HTML <title> tag from the postTitle variable we created earlier
 //The <title> tag content is what shows up on browser tabs
